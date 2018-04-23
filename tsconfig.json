@@ -15,6 +15,11 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "w11k-select": [
+        "dist/w11k-select"
+      ]
+    }
   }
 }

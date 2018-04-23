@@ -29,7 +29,10 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/w11k-select/dist/w11k-select.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
             "scripts": []
           },
@@ -126,6 +129,45 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "w11k-select": {
+      "root": "projects/w11k-select",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "project": "projects/w11k-select/ng-package.json"
+            //             STYLES HERE WONT WORK?
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/w11k-select/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/w11k-select/src/test.ts",
+            "tsConfig": "projects/w11k-select/tsconfig.spec.json",
+            "karmaConfig": "projects/w11k-select/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/w11k-select/tsconfig.lint.json",
+              "projects/w11k-select/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]
