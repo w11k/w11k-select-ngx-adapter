@@ -2,8 +2,21 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {W11kSelectModule} from '../../projects/w11k-select/src/lib/w11k-select.module';
 import {ReactiveFormsModule} from '@angular/forms';
+import { UpgradeModule } from '@angular/upgrade/static';
+
+import * as angular from 'angular';
+import { W11kSelectNgxAdapterModuleNg1, W11kSelectNgxAdapterModule } from 'w11k-select-ngx-adapter';
+
+const appModuleNg1 = angular.module('appModuleNg1', [W11kSelectNgxAdapterModuleNg1.name, 'w11k.select', 'w11k.select.template']);
+
+const templateModule = angular.module('w11k.select.template', []);
+
+templateModule.run(function ($templateCache) {
+  'ngInject';
+  $templateCache.put('w11k-select.tpl.html', require('../../node_modules/w11k-select/dist/w11k-select.tpl.html'));
+  $templateCache.put('w11k-select-option.tpl.html', require('../../node_modules/w11k-select/dist/w11k-select-option.tpl.html'));
+});
 
 @NgModule({
   declarations: [
@@ -11,11 +24,14 @@ import {ReactiveFormsModule} from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    W11kSelectModule,
+    W11kSelectNgxAdapterModule,
     ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {
+  constructor(upgrade: UpgradeModule) {
+    upgrade.bootstrap(document.documentElement, [appModuleNg1.name]);
+  }
 }

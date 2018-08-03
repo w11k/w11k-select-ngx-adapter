@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-w11k-select": {
+    "demo": {
       "root": "",
       "projectType": "application",
       "prefix": "app",
@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-w11k-select",
+            "outputPath": "dist/demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -59,18 +59,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-w11k-select:build"
+            "browserTarget": "demo:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-w11k-select:build:production"
+              "browserTarget": "demo:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-w11k-select:build"
+            "browserTarget": "demo:build"
           }
         },
         "test": {
@@ -114,7 +114,7 @@
         }
       }
     },
-    "ngx-w11k-select-e2e": {
+    "demo-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -122,7 +122,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-w11k-select:serve"
+            "devServerTarget": "demo:serve"
           }
         },
         "lint": {
@@ -136,37 +136,36 @@
         }
       }
     },
-    "w11k-select": {
-      "root": "projects/w11k-select",
+    "w11k-select-ngx-adapter": {
+      "root": "projects/w11k-select-ngx-adapter",
       "projectType": "library",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "project": "projects/w11k-select/ng-package.json"
-            //             STYLES HERE WONT WORK?
+            "project": "projects/w11k-select-ngx-adapter/ng-package.json"
           },
           "configurations": {
             "production": {
-              "project": "projects/w11k-select/ng-package.prod.json"
+              "project": "projects/ww11k-select-ngx-adapter/ng-package.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/w11k-select/src/test.ts",
-            "tsConfig": "projects/w11k-select/tsconfig.spec.json",
-            "karmaConfig": "projects/w11k-select/karma.conf.js"
+            "main": "projects/w11k-select-ngx-adapter/src/test.ts",
+            "tsConfig": "projects/w11k-select-ngx-adapter/tsconfig.spec.json",
+            "karmaConfig": "projects/w11k-select-ngx-adapter/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/w11k-select/tsconfig.lint.json",
-              "projects/w11k-select/tsconfig.spec.json"
+              "projects/w11k-select-ngx-adapter/tsconfig.lint.json",
+              "projects/w11k-select-ngx-adapter/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

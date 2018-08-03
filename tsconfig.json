@@ -17,8 +17,8 @@
       "dom"
     ],
     "paths": {
-      "w11k-select": [
-        "dist/w11k-select"
+      "w11k-select-ngx-adapter": [
+        "dist/w11k-select-ngx-adapter"
       ]
     }
   }

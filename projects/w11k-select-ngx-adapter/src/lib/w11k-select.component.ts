@@ -1,8 +1,12 @@
-import {Component, forwardRef, Input, OnInit} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {W11kSelectItem} from './w11k-select-item.model';
-import {ConfigInstance} from 'w11k-select/lib/model/config.model';
+import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ConfigInstance } from 'w11k-select/lib/model/config.model';
 
+export interface W11kSelectItem {
+  label: string;
+  value: any;
+  children?: W11kSelectItem[];
+}
 
 /**
  * This is the public interface we expose to the Angular world. Therefore

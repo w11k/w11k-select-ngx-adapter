@@ -1,0 +1,12 @@
+{
+  "name": "w11k-select-ngx-adapter",
+  "version": "0.1.0",
+  "peerDependencies": {
+    "@angular/common": "^6.0.0",
+    "@angular/core": "^6.0.0",
+    "jquery": "*",
+    "angular": "*",
+    "w11k-dropdownToggle": "*",
+    "w11k-select": "*"
+  }
+}

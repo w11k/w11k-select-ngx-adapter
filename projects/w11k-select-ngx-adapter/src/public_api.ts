@@ -3,4 +3,4 @@
  */
 
 export * from './lib/w11k-select.component';
-export * from './lib/w11k-select.module';
+export * from './lib/w11k-select-ngx-adapter.module';
