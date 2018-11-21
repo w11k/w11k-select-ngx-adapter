@@ -1,5 +1,5 @@
 {
-  "name": "w11k-select-ngx-adapter",
+  "name": "@w11k/w11k-select-ngx-adapter",
   "author": "W11K GmbH",
   "description": "Angular Adapter for w11k-select",
   "license": "MIT",
